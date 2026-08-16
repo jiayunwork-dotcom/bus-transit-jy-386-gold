@@ -82,7 +82,7 @@ func ReadStopTimes(path string) ([]StopTime, error) {
 		if err != nil {
 			return nil, fmt.Errorf("row %d: invalid capacity %q: %w", n+2, row[ci], err)
 		}
-		if capv < 0 {
+		if capv <= 0 {
 			return nil, fmt.Errorf("row %d: capacity must be positive", n+2)
 		}
 		out = append(out, StopTime{
